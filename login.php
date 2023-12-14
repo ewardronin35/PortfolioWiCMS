@@ -100,7 +100,6 @@ require_once "login_val.php";
 
                                 <div class="form-group row m-b-20">
                                     <div class="col-12">
-                                        <a href="#" class="text-muted float-right"><small>Forgot your password?</small></a>
                                         <label for="password">Password</label>
                                         <input class="form-control" type="password"  id="password" placeholder="Enter your password" name="password" value="<?php if(isset($password)){
                                           echo $password;
@@ -129,11 +128,7 @@ require_once "login_val.php";
 
                             </form>
 
-                            <div class="row m-t-50">
-                                <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Don't have an account? <a href="register.php" class="text-dark m-l-5"><b>Sign Up</b></a></p>
-                                </div>
-                            </div>
+                          
 
                         </div>
                     </div>
@@ -142,7 +137,7 @@ require_once "login_val.php";
             </div>
 
             <div class="m-t-40 text-center">
-                <p class="account-copyright"><?=date('Y')?> © Eduard Donor</p>
+                <p class="account-copyright"><?=date('Y')?> © AdminLTE</p>
             </div>
 
         </div>

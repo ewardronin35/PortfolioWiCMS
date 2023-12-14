@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2023 at 04:39 PM
+-- Generation Time: Dec 14, 2023 at 04:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -117,7 +117,8 @@ INSERT INTO `guest_messages` (`id`, `name`, `email`, `message`, `status`) VALUES
 (5, 'Rakib', 'a@gmail.com', 'Kobi Nirob!!', 2),
 (6, 'djkfjdks', 'a@gmail.com', 'dkfjdkjkkkkkkkkkj', 2),
 (7, 'dkjfkd', 'a@dd.cdd', 'dfjdjj', 2),
-(8, 'Eduard', 'eduard@gmail.c', 'weqeqwe', 2);
+(8, 'Eduard', 'eduard@gmail.c', 'weqeqwe', 2),
+(9, 'Eduard', 'ed@gmail.com', 'hi', 1);
 
 -- --------------------------------------------------------
 
@@ -175,15 +176,16 @@ INSERT INTO `my_best_works` (`id`, `works_name`, `catagory`, `photo`) VALUES
 CREATE TABLE `resumes` (
   `resume_file` longblob NOT NULL,
   `id` int(11) NOT NULL,
-  `email` varchar(111) NOT NULL
+  `email` varchar(111) NOT NULL,
+  `file_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `resumes`
 --
 
-INSERT INTO `resumes` (`resume_file`, `id`, `email`) VALUES
-(0x446561722d5369737465722d50726563792e706466, 1, 'eduard@gmail.com');
+INSERT INTO `resumes` (`resume_file`, `id`, `email`, `file_type`) VALUES
+(0x32332e706466, 1, 'eduard@gmail.com', '');
 
 -- --------------------------------------------------------
 
@@ -372,7 +374,7 @@ ALTER TABLE `education_informations`
 -- AUTO_INCREMENT for table `guest_messages`
 --
 ALTER TABLE `guest_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `logo`

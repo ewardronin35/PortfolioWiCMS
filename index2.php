@@ -1,8 +1,16 @@
-<?php 
+<?php
 session_start();
 require_once "user2/db.php";
-$resumeId = 1;
+
+$resumeId = 2;
+$email = 'vincent@gmail.com';
+$query = "SELECT resume_file FROM resumes WHERE email='$email'";
+$result = $dbcon->query($query);
+$row = $result->fetch_assoc();
+$resumeFile = $row['resume_file'];
+$resumeFilePath = 'user2/resume/' . $resumeFile;
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +43,13 @@ $resumeId = 1;
         <div class="header-text">
         <div class="h2 title"><?=$about_me['name']?></div>
           <p class="wow fadeInUp" data-wow-delay="0.6s"><?=$about_me['intro']?></p>
-          <a href="images2/Resume.pdf" download class="btn btn2">Download CV</a>
+          <?php
+// Assuming you have the resume ID from your database query
+$id = 2;
+?>
+      <?php if ($resumeFile): ?>
+            <a href="<?= $resumeFilePath ?>" class="btn btn-primary" download="<?= $resumeFile ?>">Download Resume</a>
+        <?php endif; ?>
           <a class="btn btn-primary" href="#services" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">My Skills</a>
 
         </div>
@@ -120,12 +134,13 @@ $resumeId = 1;
 
                       <div class="col-lg-4 col-md-6 pitem">
                       <div class="speaker-box">
+                      <div class="speaker-overlay">
+      									<h1><center><span><?=$row['catagory']?></span></center></h1>
+      								</div>
       								<div class="speaker-thumb">
       									<img src="user2/image/my_best_works/<?=$row['photo']?>" alt="img" >
       								</div>
-      								<div class="speaker-overlay">
-      									<span><?=$row['catagory']?></span>
-      								</div>
+      								
       							</div>
                   </div>
 
@@ -222,7 +237,7 @@ $services_query = $dbcon->query("SELECT * FROM services ORDER BY id DESC LIMIT 6
                     </div>
                 </div>
                 <div class="contact-right">
-                <form action="guest_message.php" method="post">
+                <form action="vincent_message.php" method="post">
                 <?php if(isset($_SESSION['guest_message_error'])) { ?>
                                     <div class="alert alert-danger">
                                       <?=$_SESSION['guest_message_error']?>

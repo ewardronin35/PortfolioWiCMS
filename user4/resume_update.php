@@ -4,9 +4,7 @@ $title = "profile";
 require_once "header.php";
 require_once "db.php";
 
-
 $email = $_SESSION['user_email'];
-
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
@@ -14,15 +12,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $uploadDir = __DIR__ . '/resume/';
     $uploadFile = $uploadDir . basename($_FILES['resume']['name']);
 
+    // Remove existing resume file
+    $query = "SELECT resume_file FROM resumes WHERE email='$email'";
+    $result = $dbcon->query($query);
+    $row = $result->fetch_assoc();
+    $existingResumeFile = $row['resume_file'];
+    $existingResumePath = $uploadDir . $existingResumeFile;
+    
+    if (file_exists($existingResumePath)) {
+        unlink($existingResumePath);
+    }
+
     if (move_uploaded_file($_FILES['resume']['tmp_name'], $uploadFile)) {
-        // File upload successful, update the database
-        $query = "UPDATE resumes SET resume_file='" . basename($_FILES['resume']['name']) . "' WHERE email='$email'";
+        // File upload successful, update the database with the new filename
+        $newResumeFile = basename($_FILES['resume']['name']);
+        $query = "UPDATE resumes SET resume_file='$newResumeFile' WHERE email='$email'";
         $result = $dbcon->query($query);
 
         if ($result) {
             echo "Resume updated successfully!";
             echo "File Size: " . $_FILES['resume']['size'] . " bytes";
-
         } else {
             echo "Error updating resume: " . $dbcon->error;
         }
@@ -31,11 +40,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     }
 }
 
+// Fetch the updated resume filename from the database
 $query = "SELECT resume_file FROM resumes WHERE email='$email'";
 $result = $dbcon->query($query);
 $row = $result->fetch_assoc();
-$resumeFile = $row['resume_file'];
-$resumeFilePath = 'resume/' . $resumeFile; // Construct the file path
+$row = $result->fetch_assoc();
+$resumeFile = ($row !== null && isset($row['resume_file'])) ? $row['resume_file'] : null;
+
+$resumeFilePath = 'user4/resume/' . $resumeFile; // Construct the file path
 
 ?>
 
@@ -54,7 +66,12 @@ $resumeFilePath = 'resume/' . $resumeFile; // Construct the file path
             </div>
         </form>
 
-    
+        <!-- Download button -->
+        <?php if (!empty($resumeFile)): ?>
+            <div class="form-group">
+                <a href="<?= $resumeFilePath ?>" class="btn btn-block btn-primary" download>Download Current Resume</a>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 

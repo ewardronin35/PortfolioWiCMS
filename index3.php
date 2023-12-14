@@ -1,8 +1,17 @@
-<?php 
+<?php
 session_start();
 require_once "user3/db.php";
-$resumeId = 1;
+$resumeId = 3;
+
+
+
+
+
 ?>
+
+<!-- ... Your HTML code ... -->
+
+
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -14,15 +23,7 @@ $resumeId = 1;
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
-    <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-    <noscript>
-      <style type="text/css">
-        [data-aos] {
-            opacity: 1 !important;
-            transform: translate(0) scale(1) !important;
-        }
-      </style>
-    </noscript>
+    <link href="css/mains.css?ver=1.1.0" rel="stylesheet">
   </head>
   <body id="top">
     <header>
@@ -66,13 +67,18 @@ $resumeId = 1;
 <div class="profile-page">
   <div class="wrapper">
     <div class="page-header page-header-small" filter-color="Green">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('images/home\ cg.jpg')"></div>
+    <div class="page-header-image" data-parallax="true" style="background-image: url('images/home/cg.jpg')"></div>
       <div class="container">
-        <div class="content-center">
-          <div class="cc-profile-image"><a href="#"><img src="user3/image/profile/<?=$about_me['photo']?>" alt=""></a></div>
-          <div class="h2 title"><?=$about_me['name']?></div>
-          <p class="wow fadeInUp" data-wow-delay="0.6s"><?=$about_me['intro']?></p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="#skill" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">My Skills</a>
-        </div>
+      <div class="content-center">
+    <div class="cc-profile-image"><a href="#"><img src="user3/image/profile/<?=$about_me['photo']?>" alt=""></a></div>
+    <div class="h2 title"><?=$about_me['name']?></div>
+    <p class="wow fadeInUp" data-wow-delay="0.6s"><?=$about_me['intro']?></p>
+    <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a>
+    <a href="user3/resume/CV-Resume-v2.pdf" download="CV-Resume-v2.pdf" class="btn btn-primary smooth-scroll mr-2" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Download CV</a>
+
+
+
+</div>
       </div>
       <div class="section">
         <div class="container">
@@ -81,11 +87,7 @@ $resumeId = 1;
       </div>
     </div>
   </div>
-</div>
-<?php 
-                            $education_query = $dbcon->query("SELECT * FROM education_informations");
-                            foreach ($education_query as $education) {
-                            ?>
+</div>      
 
 <div class="section" id="about">
   <div class="container">
@@ -207,14 +209,14 @@ $resumeId = 1;
       								</div>
       							</div>
                   </div>
-
+                  <?php } ?>
                   <!-- foreach end -->
           
 
                 </div>
         </div>
       
-    <?php } ?>
+  
 
 <div class="section" id="experience">
   <div class="container cc-experience">
@@ -262,13 +264,16 @@ $services_query = $dbcon->query("SELECT * FROM services ORDER BY id DESC LIMIT 6
 <div class="section">
   <div class="container cc-education">
     <div class="h4 text-center mb-4 title">Education</div>
+    <?php 
+                            $education_query = $dbcon->query("SELECT * FROM education_informations");
+                            foreach ($education_query as $education) {
+                            ?>
   
-         <div class="education">
+                               <div class="education">
                                 <div class="year"><?=$education['year']?></div>
                                 <div class="line"></div>
                                 <div class="location">
-                                    <p class="category"></div><span><?=$education['degree_name']?></span> </p>
-                                    <p class="category"><span><?=$education['degree_information']?></span> </p>
+                                    <center><p class="category"></div><span><?=$education['degree_name']?></span> </p></center>
                                     <p class="category"><span><?=$education['degree_information']?></span> </p>
                                     <div class="progressWrapper">
                                         <div class="progress">
@@ -295,7 +300,7 @@ $services_query = $dbcon->query("SELECT * FROM services ORDER BY id DESC LIMIT 6
               <div class="row">
                 <div class="col-md-6">
                   <div class="card-body">
-                  <form action="guest_message.php" method="post">
+                  <form action="agrasada_message.php" method="post">
                     
                   <?php if(isset($_SESSION['guest_message_error'])) { ?>
                                     <div class="alert alert-danger">

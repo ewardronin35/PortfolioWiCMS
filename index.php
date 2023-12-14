@@ -2,7 +2,14 @@
 session_start();
 require_once "admin/db.php";
 $resumeId = 1;
+$email = 'eduard@gmail.com';
+$query = "SELECT resume_file FROM resumes WHERE email='$email'";
+$result = $dbcon->query($query);
+$row = $result->fetch_assoc();
+$resumeFile = $row['resume_file'];
+$resumeFilePath = 'admin/resume/' . $resumeFile;
 ?>
+
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -165,12 +172,11 @@ $resumeId = 1;
                                 </div>
                                 <a href="#portfolio" class="btn wow fadeInUp" data-wow-delay="1s">SEE PORTFOLIOS</a>
                                 <?php
-// Assuming you have the resume ID from your database query
-$id = 1;
-?>
-
-<a href="download_resume.php?resume_id=<?php echo $resumeId; ?>" class="btn wow fadeInUp" data-wow-delay="1s">DOWNLOAD RESUME</a>
-
+                                $id = 1;
+                                ?>
+                           <?php if ($resumeFile): ?>
+            <a href="<?= $resumeFilePath ?>" class="btn wow fadeInUp" data-wow-delay="1s" download="<?= $resumeFile ?>">Download Resume</a>
+        <?php endif; ?>
 
 
 
