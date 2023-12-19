@@ -93,21 +93,7 @@ $all_works = $dbcon->query("SELECT * FROM my_best_works ORDER BY id DESC LIMIT 3
 
                                 <div class="row">
 
-                                    <div class="col-sm-4">
-                                        <div class="card-box tilebox-one">
-                                            <i class="mdi mdi-account-multiple-outline float-right text-muted"></i>
-                                            <h6 class="text-muted text-uppercase mt-0">Users</h6>
-                                            <h2 class="" data-plugin="counterup">                                        
-                                              <?php
-                                              $result = $dbcon->query("SELECT COUNT(*) AS total_users FROM users");
-                                              $row = $result->fetch_assoc();
-                                              echo $row['total_users']; 
-                                              ?>
-                                          </h2>
-                                        </div>
-                                        <a class="btn btn-sm btn-block btn-success" href="users.php">all users</a>
-                                    </div><!-- end col -->
-
+                                    
                                     <div class="col-sm-4">
                                         <div class="card-box tilebox-one">
                                             <i class="dripicons-phone  float-right text-muted"></i>

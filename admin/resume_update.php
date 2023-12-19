@@ -1,6 +1,6 @@
 <?php
 require_once "user_auth.php";
-$title = "profile";
+$title = "Resume Update";
 require_once "header.php";
 require_once "db.php";
 

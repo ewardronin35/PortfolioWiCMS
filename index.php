@@ -33,9 +33,11 @@ $resumeFilePath = 'admin/resume/' . $resumeFile;
         <link rel="stylesheet" href="front_end_assets/css/flaticon.css">
         <link rel="stylesheet" href="front_end_assets/css/slick.css">
         <link rel="stylesheet" href="front_end_assets/css/aos.css">
-        <link rel="stylesheet" href="front_end_assets/css/defaultss.css">
-        <link rel="stylesheet" href="front_end_assets/css/styles.css">
+        <link rel="stylesheet" href="front_end_assets/css/default.css">
+        <link rel="stylesheet" href="front_end_assets/css/style.css">
         <link rel="stylesheet" href="front_end_assets/css/responsive.css">
+        <link rel="icon" href="admin/assets/images/logo2.ico" sizes="16x16" type="image/x-icon">
+
     </head>
     <body class="theme-bg">
 
@@ -59,8 +61,8 @@ $resumeFilePath = 'admin/resume/' . $resumeFile;
                         <div class="col-xl-12">
                             <div class="main-menu">
                                 <nav class="navbar navbar-expand-lg">
-                                    <a href="index.php" class="navbar-brand logo-sticky-none"><img src="front_end_assets/img/logo/logo2.png" alt="Logo"></a>
-                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="front_end_assets/img/logo/logo2.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand logo-sticky-none"><img src="front_end_assets/img/logo/logo3.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="front_end_assets/img/logo/logo3.png" alt="Logo"></a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav">
                                         <span class="navbar-icon"></span>
@@ -94,7 +96,7 @@ $resumeFilePath = 'admin/resume/' . $resumeFile;
                 </div>
                 <div class="logo-side mb-30">
                     <a href="index-2.html">
-                        <img src="front_end_assets/img/logo/logo2.png" alt="" />
+                        <img src="front_end_assets/img/logo/logo3.png" alt="" />
                     </a>
                 </div>
 

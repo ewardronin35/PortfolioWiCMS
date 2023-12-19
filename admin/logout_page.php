@@ -12,7 +12,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/logo2.ico">
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -40,7 +40,7 @@
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
                                 <a href="../index.php" class="text-success">
-                                    <span><img src="assets/images/logo.png" alt="" height="26"></span>
+                                    <span><img src="assets/images/logo14.png" alt="" height="26"></span>
                                 </a>
                             </h2>
 
@@ -75,7 +75,7 @@
             </div>
 
             <div class="m-t-40 text-center">
-                <p class="account-copyright">2018 © Highdmin. - Coderthemes.com</p>
+                <p class="account-copyright">2023 © Midorin</p>
             </div>
 
         </div>

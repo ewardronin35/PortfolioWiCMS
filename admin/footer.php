@@ -7,7 +7,7 @@
                 </div> <!-- content -->
 
                 <footer class="footer">
-                    <?=date("Y")?> © Eduard Donor
+                    <?=date("Y")?> © Midorin 2023
                 </footer>
 
             </div>

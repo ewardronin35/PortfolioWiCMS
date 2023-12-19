@@ -16,7 +16,7 @@ require_once "login_val.php";
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="admin/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="admin/assets/images/logo2.ico">
 
         <!-- App css -->
         <link href="admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -137,7 +137,7 @@ require_once "login_val.php";
             </div>
 
             <div class="m-t-40 text-center">
-                <p class="account-copyright"><?=date('Y')?> © AdminLTE</p>
+                <p class="account-copyright"><?=date('Y')?> © Midorin</p>
             </div>
 
         </div>
